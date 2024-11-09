@@ -1,11 +1,12 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import Link from 'next/link';
-import AboutUsFeatures from './aboutUsFeatures';
-import TeamSection from './teamSection';
+import React from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+
+import AboutUsFeatures from "./aboutUsFeatures";
+import TeamSection from "./teamSection";
 
 export default function About() {
   return (
@@ -14,16 +15,16 @@ export default function About() {
       <div className="text-center mb-10 h-[60vh] mx-auto w-full flex flex-col items-center justify-center">
         <h1 className="text-3xl font-bold">About Us</h1>
         <p className="text-default-700 flex items-center justify-center my-2 text-xs">
-          <Link href={'/'}>Home</Link> &gt; About Us
+          <Link href={"/"}>Home</Link> &gt; About Us
         </p>
         <Image
+          alt="doc image"
           className="w-[340px] md:w-[400px]"
+          height={500}
           src={
-            'https://uigaint.com/demo/html/staco_i/assets/images/shape/breadcrumb-img.svg'
+            "https://uigaint.com/demo/html/staco_i/assets/images/shape/breadcrumb-img.svg"
           }
           width={500}
-          height={500}
-          alt="doc image"
         />
       </div>
 
@@ -33,9 +34,9 @@ export default function About() {
 
       <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         <motion.div
+          animate={{ y: 0, opacity: 1 }}
           className="bg-default-50 bg-opacity-15 shadow rounded-lg p-5"
           initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-xl font-semibold mb-3 text-pink-500">
@@ -49,9 +50,9 @@ export default function About() {
         </motion.div>
 
         <motion.div
+          animate={{ y: 0, opacity: 1 }}
           className="bg-default-50 bg-opacity-15 shadow rounded-lg p-5"
           initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-xl font-semibold mb-3 text-pink-500">
@@ -65,9 +66,9 @@ export default function About() {
         </motion.div>
 
         <motion.div
+          animate={{ y: 0, opacity: 1 }}
           className="bg-default-50 bg-opacity-15 shadow rounded-lg p-5"
           initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-xl font-semibold mb-3 text-pink-500">Join Us</h2>
@@ -80,9 +81,9 @@ export default function About() {
       </div>
 
       <motion.p
+        animate={{ opacity: 1 }}
         className="text-center text-default-50 mt-10"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
         transition={{ duration: 0.7 }}
       >
         Thank you for being a part of our journey. Happy travels!

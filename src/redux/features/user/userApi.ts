@@ -1,15 +1,15 @@
 import { baseApi } from "../../api/baseApi";
 
-export const UserApi = baseApi.injectEndpoints({
+export const UserApi = baseApi?.injectEndpoints({
   endpoints: (builder) => ({
     // get all users
-    getAllUsers: builder.query({
+    getAllUsers: builder?.query({
       query: (args) => {
         const params = new URLSearchParams();
 
         if (args) {
-          Object.entries(args).forEach(([name, value]) => {
-            params.append(name, value as string);
+          Object?.entries(args).forEach(([name, value]) => {
+            params?.append(name, value as string);
           });
         }
 
@@ -23,13 +23,13 @@ export const UserApi = baseApi.injectEndpoints({
     }),
 
     // get all users
-    getAllNormalForAnalyticsUsers: builder.query({
+    getAllNormalForAnalyticsUsers: builder?.query({
       query: (args) => {
         const params = new URLSearchParams();
 
         if (args) {
-          Object.entries(args).forEach(([name, value]) => {
-            params.append(name, value as string);
+          Object?.entries(args).forEach(([name, value]) => {
+            params?.append(name, value as string);
           });
         }
 
@@ -43,7 +43,7 @@ export const UserApi = baseApi.injectEndpoints({
     }),
 
     // get single users
-    getSingleUser: builder.query({
+    getSingleUser: builder?.query({
       query: (id) => {
         return {
           url: `/users/${id}`,
@@ -54,7 +54,7 @@ export const UserApi = baseApi.injectEndpoints({
     }),
 
     // get single users posts
-    getSingleUserPosts: builder.query({
+    getSingleUserPosts: builder?.query({
       query: (id) => {
         return {
           url: `/users/posts/${id}`,
@@ -65,7 +65,7 @@ export const UserApi = baseApi.injectEndpoints({
     }),
 
     // update ny profile
-    updateMyProfile: builder.mutation({
+    updateMyProfile: builder?.mutation({
       query: (args) => {
         return {
           url: `/profile/${args.id}`,
@@ -77,7 +77,7 @@ export const UserApi = baseApi.injectEndpoints({
     }),
 
     // follow user
-    follow: builder.mutation({
+    follow: builder?.mutation({
       query: (userId) => {
         return {
           url: `/users/follow/${userId}`,
@@ -88,7 +88,7 @@ export const UserApi = baseApi.injectEndpoints({
     }),
 
     // un follow user
-    unFollow: builder.mutation({
+    unFollow: builder?.mutation({
       query: (userId) => {
         return {
           url: `/users/un-follow/${userId}`,
@@ -99,7 +99,7 @@ export const UserApi = baseApi.injectEndpoints({
     }),
 
     // followers
-    followers: builder.query({
+    followers: builder?.query({
       query: () => {
         return {
           url: `/profile/followers`,
@@ -110,7 +110,7 @@ export const UserApi = baseApi.injectEndpoints({
     }),
 
     // following
-    following: builder.query({
+    following: builder?.query({
       query: () => {
         return {
           url: `/profile/following`,

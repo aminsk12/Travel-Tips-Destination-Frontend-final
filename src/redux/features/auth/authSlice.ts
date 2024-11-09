@@ -31,8 +31,8 @@ const authSlice = createSlice({
         token: string;
       }>
     ) => {
-      state.user = action.payload.user;
-      state.token = action.payload.token;
+      state.user = action?.payload?.user;
+      state.token = action?.payload?.token;
     },
     clearCredentials: (state) => {
       state.user = { id: null, email: null, role: null };
@@ -41,10 +41,10 @@ const authSlice = createSlice({
   },
 });
 
-export const getUser = (state: RootState) => state.auth.user;
-export const getToken = (state: RootState) => state.auth.token;
-export const getUserRole = (state: RootState) => state.auth.user.role;
-export const isAuthenticated = (state: RootState) => !!state.auth.token;
+export const getUser = (state: RootState) => state?.auth?.user;
+export const getToken = (state: RootState) => state?.auth?.token;
+export const getUserRole = (state: RootState) => state?.auth?.user?.role;
+export const isAuthenticated = (state: RootState) => !!state?.auth?.token;
 
 export const { setCredentials, clearCredentials } = authSlice.actions;
 

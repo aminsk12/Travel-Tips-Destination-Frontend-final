@@ -16,9 +16,9 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
   {
-    name: 'Md Rijwan Jannat',
+    name: 'Amin Sk',
     role: 'Founder',
-    imageUrl: 'https://i.ibb.co/rvP9r7m/Portfoli-imageo-removebg-preview.png',
+    imageUrl: 'https://res.cloudinary.com/dlmmd8a0k/image/upload/v1729568624/zbdm3mgtesunxpex7rhl.jpg',
     socialLinks: {
       facebook: '#',
       twitter: '#',
@@ -26,9 +26,9 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
-    name: 'Abu Talha',
+    name: 'Kamrun Naher Lipi',
     role: 'Co Founder',
-    imageUrl: 'https://i.ibb.co/kmqWZ9x/IMG-0044.jpg',
+    imageUrl: 'https://res.cloudinary.com/dlmmd8a0k/image/upload/v1731129283/WhatsApp_Image_2024-11-09_at_10.44.08_AM_grro9r.jpg',
     socialLinks: {
       facebook: '#',
       twitter: '#',
@@ -36,9 +36,9 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
-    name: 'Debra Cavender',
+    name: 'Sahina Sultana',
     role: 'Web Developer',
-    imageUrl: 'https://picsum.photos/200/200?random=3',
+    imageUrl: 'https://res.cloudinary.com/dlmmd8a0k/image/upload/v1731129534/WhatsApp_Image_2024-11-09_at_10.48.35_AM_co7bur.jpg',
     socialLinks: {
       facebook: '#',
       twitter: '#',
@@ -46,9 +46,9 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
-    name: 'Vicky O. Harrell',
+    name: 'Sakwat Kazi ',
     role: 'UI Designer',
-    imageUrl: 'https://picsum.photos/200/200?random=4',
+    imageUrl: 'https://res.cloudinary.com/dlmmd8a0k/image/upload/v1721996947/samples/people/smiling-man.jpg',
     socialLinks: {
       facebook: '#',
       twitter: '#',

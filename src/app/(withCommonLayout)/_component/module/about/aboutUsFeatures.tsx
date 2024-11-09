@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 const TravelFeatures: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<string>('tips');
+  const [activeTab, setActiveTab] = useState<string>("tips");
 
   const tabs = [
-    { id: 'tips', label: 'Travel Tips' },
-    { id: 'destinations', label: 'Top Destinations' },
-    { id: 'guides', label: 'Travel Guides' },
+    { id: "tips", label: "Travel Tips" },
+    { id: "destinations", label: "Top Destinations" },
+    { id: "guides", label: "Travel Guides" },
   ];
 
   const tabContent = {
-    tips: 'Get the best travel tips from seasoned travelers to make your journey smoother and more enjoyable.',
+    tips: "Get the best travel tips from seasoned travelers to make your journey smoother and more enjoyable.",
     destinations:
-      'Discover the most popular travel destinations, from breathtaking beaches to vibrant cities around the world.',
+      "Discover the most popular travel destinations, from breathtaking beaches to vibrant cities around the world.",
     guides:
-      'Explore comprehensive travel guides to help you navigate new places with ease.',
+      "Explore comprehensive travel guides to help you navigate new places with ease.",
   };
 
   return (
@@ -27,8 +27,8 @@ const TravelFeatures: React.FC = () => {
           Travel Platform
         </h2>
         <h1 className="text-xl md:text-2xl font-bold">
-          Explore the{' '}
-          <span className="text-pink-500 bg-pink-100 px-2 rounded">world</span>{' '}
+          Explore the{" "}
+          <span className="text-pink-500 bg-pink-100 px-2 rounded">world</span>{" "}
           with the best travel insights
         </h1>
 
@@ -39,8 +39,8 @@ const TravelFeatures: React.FC = () => {
               key={tab.id}
               className={`py-2 px-3 rounded-full text-xs md:text-sm ${
                 activeTab === tab.id
-                  ? 'bg-pink-100 text-pink-600'
-                  : 'bg-default-100 text-default-500'
+                  ? "bg-pink-100 text-pink-600"
+                  : "bg-default-100 text-default-500"
               }`}
               onClick={() => setActiveTab(tab.id)}
             >
@@ -77,17 +77,17 @@ const TravelFeatures: React.FC = () => {
       <div className="lg:w-1/2 relative bg-default-50 rounded-lg">
         <div className="relative overflow-hidden rounded-lg">
           <Image
-            width={500}
-            height={500}
-            src="https://media.istockphoto.com/id/1526986072/photo/airplane-flying-over-tropical-sea-at-sunset.jpg?s=612x612&w=0&k=20&c=Ccvg3BqlqsWTT0Mt0CvHlbwCuRjPAIWaCLMKSl3PCks=" // Replace with an appropriate travel-related image URL
             alt="Explore Destinations"
             className="object-cover full"
+            height={500}
+            src="https://media.istockphoto.com/id/1526986072/photo/airplane-flying-over-tropical-sea-at-sunset.jpg?s=612x612&w=0&k=20&c=Ccvg3BqlqsWTT0Mt0CvHlbwCuRjPAIWaCLMKSl3PCks=" // Replace with an appropriate travel-related image URL
+            width={500}
           />
           {/* Stat 1 */}
           <motion.div
+            animate={{ opacity: 1, y: 0 }}
             className="absolute top-4 left-4 bg-white p-3 rounded-lg border border-default-100 text-center"
             initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.1 }}
           >
             <p className="text-2xl font-bold">75+</p>
@@ -96,9 +96,9 @@ const TravelFeatures: React.FC = () => {
 
           {/* Stat 2 */}
           <motion.div
+            animate={{ opacity: 1, y: 0 }}
             className="absolute bottom-4 right-4 bg-white p-3 rounded-lg border border-default-100 text-center"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.1 }}
           >
             <p className="text-2xl font-bold">1M+</p>

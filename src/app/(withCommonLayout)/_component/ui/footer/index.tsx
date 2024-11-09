@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
         >
           <div className="flex justify-center md:justify-start items-center gap-1">
             <BrandLogo />
-            <p className="font-bold text-inherit">TT&DG</p>
+            <p className="font-bold text-inherit">RoamCrafters</p>
           </div>
           <p className="text-default-900 text-xs">
             Exploring the World, one adventure at a time. Connecting travelers
@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
             <Image
               className="w-[200px] object-cover rounded"
               src={
-                'https://res.cloudinary.com/dihqveqyc/image/upload/v1730004592/hclxgpwllvotvtew74ag.avif'
+                'https://res.cloudinary.com/dlmmd8a0k/image/upload/v1721996947/samples/landscapes/girl-urban-view.jpg'
               }
               width={500}
               height={500}
@@ -74,9 +74,9 @@ const Footer: React.FC = () => {
           className="flex flex-col items-center md:items-start md:text-left mt-2"
         >
           <h3 className="text-lg font-semibold mb-2">Our Office Location</h3>
-          <p className="text-default-900 text-xs">Bogura, Bangladesh</p>
-          <p className="text-default-900 text-xs">travel@travel.com</p>
-          <p className="text-default-900 text-xs">+880 1797550947</p>
+          <p className="text-default-900 text-xs">West Bangol, INDIA</p>
+          <p className="text-default-900 text-xs">roamcrafters@travel.com</p>
+          <p className="text-default-900 text-xs">+91 8101718317</p>
           <SocialLinks />
         </motion.div>
       </div>
@@ -129,6 +129,7 @@ const Footer: React.FC = () => {
         transition={{ delay: 0.8 }}
       >
         <span>© Copyright Travel Platform {date}</span>
+        <span className='font-medium'>Amin Sk (Founder)</span>
         <div className="space-x-4">
           <Link
             href="/sitemap"

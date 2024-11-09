@@ -1,29 +1,31 @@
-'use client';
+"use client";
 
-import { z } from 'zod';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Input } from '@nextui-org/input';
-import Link from 'next/link';
-import { jwtDecode } from 'jwt-decode';
-import { toast } from 'sonner';
-import React, { useState } from 'react';
-import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
-import GoogleButton from '../registerForm/googleButton';
-import LoginRightContent from './loginRightContent';
-import { loginSchema } from '@/src/schema/auth';
-import CButton from '@/src/components/ui/CButton/CButton';
-import { secondaryColor } from '@/src/styles/button';
-import { useLoginMutation } from '@/src/redux/features/auth/authApi';
-import { useAppDispatch } from '@/src/redux/hook';
-import { setCredentials } from '@/src/redux/features/auth/authSlice';
-import GlassLoader from '@/src/components/shared/glassLoader';
-import Cookies from 'js-cookie';
-import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
-import { SerializedError } from '@reduxjs/toolkit';
-import { useRouter, useSearchParams } from 'next/navigation';
-import BackButton from '../../ui/backButton';
-import DemoCredential from '../../ui/demoCredential';
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Input } from "@nextui-org/input";
+import Link from "next/link";
+import { jwtDecode } from "jwt-decode";
+import { toast } from "sonner";
+import React, { useState } from "react";
+import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
+import Cookies from "js-cookie";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import { SerializedError } from "@reduxjs/toolkit";
+import { useRouter, useSearchParams } from "next/navigation";
+
+import BackButton from "../../ui/backButton";
+import DemoCredential from "../../ui/demoCredential";
+
+import LoginRightContent from "./loginRightContent";
+
+import { loginSchema } from "@/src/schema/auth";
+import CButton from "@/src/components/ui/CButton/CButton";
+import { secondaryColor } from "@/src/styles/button";
+import { useLoginMutation } from "@/src/redux/features/auth/authApi";
+import { useAppDispatch } from "@/src/redux/hook";
+import { setCredentials } from "@/src/redux/features/auth/authSlice";
+import GlassLoader from "@/src/components/shared/glassLoader";
 
 type LoginFormInputs = z.infer<typeof loginSchema>;
 interface TDecodedData {
@@ -38,11 +40,11 @@ export default function LoginForm() {
   const toggleVisibility = () => setIsVisible(!isVisible);
   const [loginUser, { isLoading: LoginIsLoading, isSuccess }] =
     useLoginMutation();
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const dispatch = useAppDispatch();
   const searchParams = useSearchParams();
-  const redirect = searchParams.get('redirect');
+  const redirect = searchParams.get("redirect");
   const router = useRouter();
 
   // Form handling
@@ -54,8 +56,8 @@ export default function LoginForm() {
   } = useForm<LoginFormInputs>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     },
   });
 
@@ -71,37 +73,40 @@ export default function LoginForm() {
 
       if (res?.data?.success && res?.data?.data?.accessToken) {
         const decodedUser = jwtDecode(
-          res.data.data.accessToken
+          res?.data?.data?.accessToken,
         ) as TDecodedData;
 
         const userData = {
-          id: decodedUser.id,
-          email: decodedUser.email,
-          role: decodedUser.role,
+          id: decodedUser?.id,
+          email: decodedUser?.email,
+          role: decodedUser?.role,
         };
 
         // Dispatch credentials to Redux
         dispatch(
-          setCredentials({ user: userData, token: res.data.data.accessToken })
+          setCredentials({
+            user: userData,
+            token: res?.data?.data?.accessToken,
+          }),
         );
         // Set token in cookies
-        Cookies.set('accessToken', res?.data?.data?.accessToken);
+        Cookies.set("accessToken", res?.data?.data?.accessToken);
 
-        router.push(redirect ? redirect : '/news-feed/posts');
+        router.push(redirect ? redirect : "/news-feed/posts");
         // Show success toast
-        toast.success('Login successful');
+        toast.success("Login successful");
 
         reset();
       }
       const error = res?.error;
 
       if (error) {
-        if ('data' in (error as FetchBaseQueryError)) {
+        if ("data" in (error as FetchBaseQueryError)) {
           const fetchError = error as FetchBaseQueryError;
           const errorMessage = (fetchError.data as { message?: string })
             ?.message;
 
-          toast.error(errorMessage || 'An unknown error occurred');
+          toast.error(errorMessage || "An unknown error occurred");
         } else if ((error as SerializedError).message) {
           toast.error((error as SerializedError).message!);
         }
@@ -144,16 +149,16 @@ export default function LoginForm() {
                 {/* Email Input */}
                 <div className="h-16">
                   <Input
-                    {...register('email')}
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)} // Update state on change
+                    {...register("email")}
                     className="font-semibold"
                     isInvalid={!!errors.email}
                     label="Email address"
                     placeholder="you@domain.com"
                     type="email"
-                    validationState={errors.email ? 'invalid' : undefined}
+                    validationState={errors.email ? "invalid" : undefined}
+                    value={email}
                     variant="underlined"
+                    onChange={(e) => setEmail(e.target.value)} // Update state on change
                   />
                   {errors.email && (
                     <p className="text-danger-500 text-sm mt-1">
@@ -163,9 +168,7 @@ export default function LoginForm() {
                 </div>
                 <div className="h-16">
                   <Input
-                    {...register('password')}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)} // Update state on change
+                    {...register("password")}
                     className="font-semibold"
                     endContent={
                       <button
@@ -184,9 +187,11 @@ export default function LoginForm() {
                     isInvalid={!!errors.password}
                     label="Password"
                     placeholder="Must be at least 6 characters"
-                    type={isVisible ? 'text' : 'password'}
-                    validationState={errors.password ? 'invalid' : undefined}
+                    type={isVisible ? "text" : "password"}
+                    validationState={errors.password ? "invalid" : undefined}
+                    value={password}
                     variant="underlined"
+                    onChange={(e) => setPassword(e.target.value)} // Update state on change
                   />
                   {errors.password && (
                     <p className="text-danger-500 text-sm mt-1">
@@ -197,7 +202,7 @@ export default function LoginForm() {
                 <div className="flex my-1 items-center justify-end text-xs relative">
                   <Link
                     className="text-blue-500 hover:underline"
-                    href={'/forgot-password'}
+                    href={"/forgot-password"}
                   >
                     Forgot password
                   </Link>
@@ -212,7 +217,7 @@ export default function LoginForm() {
               </form>
 
               <p className="text-center text-default-500 text-xs relative">
-                New here?{' '}
+                New here?{" "}
                 <Link className="text-blue-500 text-xs" href="/register">
                   Create an account
                 </Link>

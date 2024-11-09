@@ -1,8 +1,8 @@
 // components/DocumentCardtsxCardBody
-import React from 'react';
-import { Card, CardBody, CardFooter, CardHeader } from '@nextui-org/card';
-import { Button } from '@nextui-org/button';
-import Link from 'next/link';
+import React from "react";
+import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
+import { Button } from "@nextui-org/button";
+import Link from "next/link";
 
 interface DocumentCardProps {
   title: string;
@@ -34,11 +34,11 @@ const DocumentCard: React.FC<DocumentCardProps> = ({ title, items, link }) => {
       <CardFooter>
         <Button
           as={Link}
+          className="w-full text-pink-500"
           href={link}
-          target="_blank"
           radius="full"
           size="sm"
-          className="w-full text-pink-500"
+          target="_blank"
         >
           View More →
         </Button>

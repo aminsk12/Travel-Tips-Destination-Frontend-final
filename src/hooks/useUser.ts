@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+
 import { useGetMeQuery } from "../redux/features/auth/authApi";
 import { TUser } from "../types";
 
@@ -7,7 +8,7 @@ export const useUser = () => {
     data: userData,
     isFetching,
     error,
-    refetch,
+    refetch
   } = useGetMeQuery(undefined);
 
   const userInfo = userData?.data as TUser | undefined;
