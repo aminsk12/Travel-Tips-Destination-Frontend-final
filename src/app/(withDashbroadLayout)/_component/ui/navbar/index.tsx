@@ -14,7 +14,7 @@ export default function FeedNavbar() {
         <div className="flex items-center gap-3">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <BrandLogo />
-            <p className="font-bold text-inherit">RoamCrafters</p>
+            <p className="font-bold text-inherit">TravelQuesta</p>
           </NextLink>
           <div className="md:w-[300px]">
             <SearchInput />

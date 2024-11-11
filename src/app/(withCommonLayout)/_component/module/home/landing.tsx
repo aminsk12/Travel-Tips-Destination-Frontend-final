@@ -48,7 +48,7 @@ const LandingBanner: FC<TLandingBannerProps> = () => {
       <div className="mt-8 z-10 animate-fade-in-up">
         <Snippet hideCopyButton hideSymbol variant="bordered">
           <span>
-            Get started with <Code color="primary">RoamCrafters Community</Code>
+            Get started with <Code color="primary">TravelQuesta Community</Code>
           </span>
         </Snippet>
       </div>

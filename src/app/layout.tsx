@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
   description: "This a Travel Tips & Destination Guides Community",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/Logo.png",
   },
 };
 
